@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
 let obj = {
-  msg: 'New Paltz Rocks!'
+  msg: 'New Paltz Rocks!!'
 }
 
 
