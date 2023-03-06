@@ -2,7 +2,6 @@
 import { ref } from 'vue';
 import { useSession, login } from '@/model/session';
 
-
 const session = useSession();
 
 </script>
@@ -32,5 +31,4 @@ const session = useSession();
 </template>
 
 <style scoped>
-
 </style>
