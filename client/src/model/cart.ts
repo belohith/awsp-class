@@ -1,7 +1,9 @@
+
+
 import { ref } from "vue";
 import type { Product } from "./products";
 
-const cart = ref([]);
+const cart = ref([] as CartItem[]);
 
 export function useCart() {
     return cart;
@@ -9,7 +11,6 @@ export function useCart() {
 
 export interface CartItem {
     productId: number;
-    product:Product;
+    product: Product;
     quantity: number;
-
 }

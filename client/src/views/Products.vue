@@ -1,59 +1,57 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { getProducts, type Product } from "../model/products"
+import { ref } from 'vue';
+import { getProducts, type Product } from '../model/products'
 
-const products = ref(getProducts());
+const products = ref( getProducts());
 
 </script>
 
 <template>
     <div>
-        <h1 class ="title">
-            These will be the products
+        <h1 class="title">
+            TWhat would you like to buy?
         </h1>
-        <h2 class ="subjects">
-            These will be the subjects
-        </h2>
-<!-- double {{}} for pritning a output -->
+
+
         <div class="product-list">
-            <div class= "product" v-for="product in products" :key="product.id">
-                <img :src="product.thumbnail" alt="product.title" />
+            <div class="product" v-for="product in products" :key="product.id">
+                <img :src="product.thumbnail" :alt="product.title" />
                 <h3>{{ product.title }}</h3>
                 <p>{{ product.description }}</p>
                 <p>
-                     <span>$</span>
-                     <i class="price">
-                         {{ product.price }}
-                     </i>
-                   
+                    <span>$</span>
+                    <i class="price">
+                        {{ product.price }}
+                    </i>
                 </p>
                 <button class="button is-primary">+</button>
-
             </div>
         </div>
-
 
     </div>
 </template>
 
 
-
 <style scoped>
-
     .product-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background-color: rgb(103, 192, 230);
+        background-color: aliceblue;
     }
 
     .product {
-        width: 10rem;
-        padding: 1rem;
+        flex-basis: 12rem;
+        flex-grow: 1;
+        padding: .5rem;
         margin: 1rem;
         background-color: white;
         border-radius: 5px;
-        box-shadow: 0 0 5px 0 rgba(0,0);
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
     }
 
+    .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 </style>

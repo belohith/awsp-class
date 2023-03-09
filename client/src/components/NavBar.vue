@@ -2,7 +2,9 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import LoginBadge from './LoginBadge.vue';
+
     const isMenuActive = ref(false);
+
     function toggleMenu() {
         isMenuActive.value = !isMenuActive.value;
         console.log({ isMenuActive });
@@ -98,4 +100,5 @@ import LoginBadge from './LoginBadge.vue';
 
 
 <style scoped>
+
 </style>

@@ -24,3 +24,7 @@ export function login() {
         name:'Lohith Bollineni',
     }
 }
+
+export function logout() {
+    session.user =null;    
+}
