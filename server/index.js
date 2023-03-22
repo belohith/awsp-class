@@ -1,16 +1,19 @@
-const products = require('./controllers/products')
-
 const express = require('express')
+const products = require('./controllers/products')
 const app = express()
 
 const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000; //change this if you have an error
+const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World! From Express')
-})
-.use('/products', products)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app
+    .get('/', (req, res) => {
+        res.send('Hello World! From Express')
+    })
+    .use('/products', products)
+
+
+
+app.listen(port, () => 
+  console.log(`Server running at http://${hostname}:${port}/`)
+);
