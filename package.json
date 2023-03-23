@@ -13,6 +13,9 @@
     "url": "git+https://github.com/belohith/awsp-class.git"
   },
   "private": true,
+  "workspaces": [
+    "client"
+  ],
   "author": "Lohith Bollineni",
   "license": "ISC",
   "bugs": {
