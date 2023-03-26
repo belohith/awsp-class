@@ -2,7 +2,6 @@
   "name": "class",
   "version": "1.0.0",
   "description": "A class work project for the Advance Web Server Programming Spring 2023 Class at SUNY New Paltz.",
-  "main": "index.js",
   "scripts": {
     "build": "npm i -ws && npm run build -ws",
     "start": "node server/index.js",
