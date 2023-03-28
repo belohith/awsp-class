@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getProducts, type Product } from '../model/products'
+import { addToCart } from '../model/cart';
 
-const products = ref( getProducts());
+const products = ref<Product[]>([]);
+getProducts().then((data) => {
+    products.value = data;
+});
 
 </script>
 
@@ -14,6 +18,8 @@ const products = ref( getProducts());
 
 
         <div class="product-list">
+            <progress v-if="!products.length" class="progress is-large is-info" max="100">60%</progress>
+            
             <div class="product" v-for="product in products" :key="product.id">
                 <img :src="product.thumbnail" :alt="product.title" />
                 <h3>{{ product.title }}</h3>
@@ -24,7 +30,7 @@ const products = ref( getProducts());
                         {{ product.price }}
                     </i>
                 </p>
-                <button class="button is-primary">+</button>
+                <button class="button is-primary" @click="addToCart(product)">+</button>
             </div>
         </div>
 
