@@ -12,6 +12,7 @@ const session = reactive({
         msg: string,
         type: "success" | "danger" | "warning" | "info",
     }[],
+    redirectUrl: null as string | null,
 })
 
 interface User {
@@ -26,9 +27,9 @@ export function useSession() {
     return session;
 }
 
-export function api(url: string) {
+export function api(url: string, data?: any, method?: string, headers?: any) {
     session.isLoading = true;
-    return myFetch.api(url)
+    return myFetch.api(url, data, method, headers)
         .catch(err => {
             console.error({err});
             session.messages.push({
@@ -41,9 +42,16 @@ export function api(url: string) {
         })
 }
 
-export function login() {
-    session.user = {
-        name: "John Doe",
+export function useLogin() {
+    const router = useRouter();
+
+    return function() {
+        session.user = {
+            name: "John Doe",
+        }
+
+        router.push(session.redirectUrl ?? "/");
+        session.redirectUrl = null;
     }
 }
 
