@@ -17,3 +17,4 @@ export default function Home() {
 }
 
 //have to connect react to server
+//have to connect react to server
